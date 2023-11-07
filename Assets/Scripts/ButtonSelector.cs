@@ -5,7 +5,7 @@ public class ButtonSelector : MonoBehaviour
 {
     public Button[] buttons; // 에디터에서 할당
     private int selectedIndex = 0;
-
+    
     // 각 버튼의 원래 색상을 저장할 배열
     private Color[] originalColors;
 
