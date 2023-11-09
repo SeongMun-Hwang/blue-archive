@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ButtonSelector : MonoBehaviour
 {
@@ -55,6 +56,10 @@ public class ButtonSelector : MonoBehaviour
     void HighlightButton(int index)
     {
         buttons[index].GetComponent<Image>().color = highlightColor;
+    }
+    public void StartGame()
+    {
+        SceneManager.LoadSceneAsync("MainGame");
     }
     public void ExitGame()
     {
