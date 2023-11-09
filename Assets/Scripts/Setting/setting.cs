@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 
 public class setting : MonoBehaviour
 {
-    public stone stone;
     public TMP_Dropdown resolutionDropdown;
     public Slider effectSoundsSlider;
     public Slider backGroundSlider;
