@@ -13,10 +13,13 @@ public class MoveKoharu : MonoBehaviour
     public Tilemap tilemap;
     private Vector2 boundaryMin; // 배경의 최소 경계값
     private Vector2 boundaryMax; // 배경의 최대 경계값
+    //애니메이션
+    private Animator animator;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
         if (tilemap != null)
         {
@@ -43,6 +46,8 @@ public class MoveKoharu : MonoBehaviour
     {
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         Vector2 moveVelocity = moveInput.normalized * moveSpeed;
+
+        //animator.SetFloat("speed", moveInput.x);
 
         // 이동이 있을 때만 업데이트한다.
         if (moveInput != Vector2.zero)
