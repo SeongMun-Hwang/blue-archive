@@ -6,13 +6,12 @@ public class SuzumiText : MonoBehaviour
 {
     public TextMeshPro textDisplay;
     public string[] textCase = new string[2] {
-        "학생이신가요?\n 그렇다면 괜찮지만...\n 밤에는 빨리 귀가하세요.\n" +
-        "불량학생이 아니라면요.\n" ,
+        "학생이신가요?\n그렇다면 괜찮지만...\n밤에는 빨리 귀가하세요.\n불량학생이 아니라면요.\n" ,
          "..............." ,
     };
     private string currentText = "";
     private float delay = 0.1f;
-    private int interactedNumber = 0;
+    private int interactedNumber = 0; //상호작용 횟수
     private void OnEnable()
     {
         if (interactedNumber == 0)
