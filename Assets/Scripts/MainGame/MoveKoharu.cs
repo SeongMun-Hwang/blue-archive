@@ -35,8 +35,8 @@ public class MoveKoharu : MonoBehaviour
             Vector3 maxWorld = tilemap.LocalToWorld(maxLocal);
 
             // 경계값을 설정합니다.
-            boundaryMin = new Vector2(minWorld.x, minWorld.y);
-            boundaryMax = new Vector2(maxWorld.x, maxWorld.y);
+            boundaryMin = new Vector2(minWorld.x, minWorld.y+2);
+            boundaryMax = new Vector2(maxWorld.x, maxWorld.y-6);
 
             // 경계를 적절히 조정할 수 있습니다 (예: 캐릭터의 크기 등을 고려하여).
         }
@@ -46,8 +46,6 @@ public class MoveKoharu : MonoBehaviour
     {
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         Vector2 moveVelocity = moveInput.normalized * moveSpeed;
-
-        //animator.SetFloat("speed", moveInput.x);
 
         // 이동이 있을 때만 업데이트한다.
         if (moveInput != Vector2.zero)
@@ -82,7 +80,7 @@ public class MoveKoharu : MonoBehaviour
         if (isFlipping) return; // 이미 반전 중이라면 실행하지 않음
         StartCoroutine(Flip(targetScaleX));
     }
-
+    //좌->우, 우->좌 이동 시 코하루 회전
     IEnumerator Flip(float targetScaleX)
     {
         isFlipping = true;
