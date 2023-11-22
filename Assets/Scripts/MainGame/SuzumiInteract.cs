@@ -29,15 +29,13 @@ public class SuzumiInteract : MonoBehaviour
     }
     private void Interact()
     {
-        if (!ClosedSuzumi.activeSelf)
+        if (!OpenedSuzumi.activeSelf)
+        {
+            OpenedSuzumi.SetActive(true);
+        }
+        else if (OpenedSuzumi.activeSelf)
         {
             OpenedSuzumi.SetActive(false);
-            ClosedSuzumi.SetActive(true);
-        }
-        else if (ClosedSuzumi.activeSelf)
-        {
-            ClosedSuzumi.SetActive(false);
-            OpenedSuzumi.SetActive(true);
         }
     }
 }
