@@ -5,25 +5,36 @@ using TMPro;
 public class SuzumiText : MonoBehaviour
 {
     public TextMeshPro textDisplay;
-    public string fullText = "학생이신가요?\n 그렇다면 괜찮지만...\n 밤에는 빨리 귀가하세요.\n" +
-        "불량학생이 아니라면요.\n";
+    public string[] textCase = new string[2] {
+        "학생이신가요?\n 그렇다면 괜찮지만...\n 밤에는 빨리 귀가하세요.\n" +
+        "불량학생이 아니라면요.\n" ,
+         "..............." ,
+    };
     private string currentText = "";
     private float delay = 0.1f;
-
+    private int interactedNumber = 0;
     private void OnEnable()
     {
-        StartCoroutine(ShowText());
+        if (interactedNumber == 0)
+        {
+            StartCoroutine(ShowText(textCase[0]));
+        }
+        else if (interactedNumber > 0)
+        {
+            StartCoroutine(ShowText(textCase[1]));
+        }
+        interactedNumber++;
     }
     private void OnDisable()
     {
         textDisplay.text = "";
     }
 
-    IEnumerator ShowText()
+    IEnumerator ShowText(string text)
     {
-        for (int i = 0; i < fullText.Length; i++)
+        for (int i = 0; i < text.Length; i++)
         {
-            currentText = fullText.Substring(0, i + 1);
+            currentText = text.Substring(0, i + 1);
             textDisplay.text = currentText;
             yield return new WaitForSeconds(delay);
         }
