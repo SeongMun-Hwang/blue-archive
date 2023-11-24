@@ -59,7 +59,7 @@ public class ButtonSelector : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadSceneAsync("MainGame");
+        SceneManager.LoadSceneAsync("SuzumiMap");
     }
     public void ExitGame()
     {

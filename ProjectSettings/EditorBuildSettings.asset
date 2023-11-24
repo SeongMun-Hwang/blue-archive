@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SuzumiMap.unity
     guid: 3af928997d475744b8568fdeb79f2948
+  - enabled: 1
+    path: Assets/Scenes/LeisaMap.unity
+    guid: 57ff829f4c4d3744cb541b1d50dbb24e
   m_configObjects: {}
