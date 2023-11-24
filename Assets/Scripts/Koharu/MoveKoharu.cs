@@ -20,25 +20,26 @@ public class MoveKoharu : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        tilemap = FindObjectOfType<Tilemap>();
 
         if (tilemap != null)
         {
-            // 타일맵의 로컬 경계를 가져옵니다.
+            // 타일맵의 셀 경계를 가져옵니다.
             BoundsInt bounds = tilemap.cellBounds;
 
-            // 로컬 좌표로 경계의 최소 및 최대 포인트를 계산합니다.
-            Vector3 minLocal = tilemap.CellToLocalInterpolated(new Vector3Int(bounds.xMin, bounds.yMin, 0));
-            Vector3 maxLocal = tilemap.CellToLocalInterpolated(new Vector3Int(bounds.xMax, bounds.yMax, 0));
+            // 타일맵의 전체 경계를 계산합니다.
+            Vector3 minCell = tilemap.CellToWorld(new Vector3Int(bounds.xMin, bounds.yMin, 0));
+            Vector3 maxCell = tilemap.CellToWorld(new Vector3Int(bounds.xMax, bounds.yMax, 0));
 
-            // 월드 좌표로 변환합니다.
-            Vector3 minWorld = tilemap.LocalToWorld(minLocal);
-            Vector3 maxWorld = tilemap.LocalToWorld(maxLocal);
+            // 캐릭터의 크기를 고려하여 경계값을 조정합니다.
+            float characterWidth = GetComponent<SpriteRenderer>().bounds.size.x / 2;
+            float characterHeight = GetComponent<SpriteRenderer>().bounds.size.y / 2;
+            boundaryMin = new Vector2(minCell.x + characterWidth, minCell.y + characterHeight);
+            boundaryMax = new Vector2(maxCell.x - characterWidth, maxCell.y - characterHeight);
 
-            // 경계값을 설정합니다.
-            boundaryMin = new Vector2(minWorld.x, minWorld.y+2);
-            boundaryMax = new Vector2(maxWorld.x, maxWorld.y-6);
-
-            // 경계를 적절히 조정할 수 있습니다 (예: 캐릭터의 크기 등을 고려하여).
+            // 디버그 로그로 경계값 출력
+            Debug.Log("Boundary Min: " + boundaryMin);
+            Debug.Log("Boundary Max: " + boundaryMax);
         }
     }
 

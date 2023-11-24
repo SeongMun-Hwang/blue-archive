@@ -13,14 +13,16 @@ public class SuzumiMapManager : MonoBehaviour
         GameObject characterPrefab = Resources.Load<GameObject>("KoharuZzang");
         GameObject character = Instantiate(characterPrefab);
         //메인 카메라에 코하루 연결
-        CameraFollowCharacter cameraScript = FindObjectOfType<CameraFollowCharacter>();
-        cameraScript.target = character.transform;
+        //CameraFollowCharacter cameraScript = FindObjectOfType<CameraFollowCharacter>();
+        //cameraScript.target = character.transform;
         //스즈미 상호작용에 코하루 연결
         SuzumiInteract suzumiInteract = FindObjectOfType<SuzumiInteract>();
         suzumiInteract.Koharu = character;
         //코하루 캐릭터에 타일맵 할당
-        MoveKoharu moveKoharu = character.GetComponent<MoveKoharu>();
-        moveKoharu.tilemap = tilemap;
+        //MoveKoharu moveKoharu = character.GetComponent<MoveKoharu>();
+        //moveKoharu.tilemap = tilemap;
+        //CameraFollowCharacter cameraFollowCharacter = character.GetComponent<CameraFollowCharacter>();
+        //cameraFollowCharacter.tilemap = tilemap;
     }
 
     // Update is called once per frame
