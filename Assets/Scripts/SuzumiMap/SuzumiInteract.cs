@@ -12,7 +12,7 @@ public class SuzumiInteract : MonoBehaviour
     public GameObject Koharu;
     public GameObject InteractBox;
     public GameObject MoveMapBox;
-    public float interactDistance; //코하루와 스즈미 거리
+    private float interactDistance =4; //코하루와 스즈미 거리
 
     public void Update()
     {

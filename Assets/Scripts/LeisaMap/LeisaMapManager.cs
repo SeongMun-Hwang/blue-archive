@@ -9,8 +9,8 @@ public class LeisaMapManager : MonoBehaviour
     {
         GameObject characterPrefab = Resources.Load<GameObject>("KoharuZzang");
         GameObject character = Instantiate(characterPrefab);
-        //SuzumiInteract suzumiInteract = FindObjectOfType<SuzumiInteract>();
-        //suzumiInteract.Koharu = character;
+        LeisaInteract leisaInteract = FindObjectOfType<LeisaInteract>();
+        leisaInteract.Koharu = character;
     }
 
     // Update is called once per frame
