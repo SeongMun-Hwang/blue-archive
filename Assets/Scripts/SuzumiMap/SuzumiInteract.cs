@@ -10,41 +10,15 @@ public class SuzumiInteract : MonoBehaviour
     public GameObject ClosedSuzumi;
     public GameObject OpenedSuzumi;
     public GameObject Koharu;
-    public GameObject InteractBox;
-    public GameObject MoveMapBox;
-    private float interactDistance =4; //코하루와 스즈미 거리
 
     public void Update()
     {
-        //스즈미랑 코하루 거리
-        float distanceToSuzumi = Mathf.Abs(Koharu.transform.position.x - ClosedSuzumi.transform.position.x);
-        //코하루랑 맵 이동 박스 거리
-        float distanceToMoveMap = Mathf.Abs(Koharu.transform.position.x - MoveMapBox.transform.position.x);
-        // 스즈미와 F로 상호작용
-        if (distanceToSuzumi <= interactDistance) {
-            InteractBox.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.F)){
-                Interact();
-            }
-        }
-        else if (distanceToSuzumi >= interactDistance)
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            InteractBox.SetActive(false);
-        }
-        //맵 이동 상호 작용
-        if (distanceToMoveMap <= interactDistance)
-        {
-            MoveMapBox.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                SceneManager.LoadScene("LeisaMap");
-            }
-        }
-        else if (distanceToMoveMap >= interactDistance)
-        {
-            MoveMapBox.SetActive(false);
+            Interact();
         }
     }
+
     private void Interact()
     {
         if (!OpenedSuzumi.activeSelf)
