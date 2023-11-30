@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3095440825042257003}
   - component: {fileID: 3095440825042256998}
   - component: {fileID: -1034635259320981275}
+  - component: {fileID: -1679985814210405244}
   m_Layer: 0
   m_Name: KoharuZzang
   m_TagString: Untagged
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 7a53e865cdb9ddd4180cda16e9a917df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -136,3 +137,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   tilemap: {fileID: 0}
+  mainCamera: {fileID: 0}
+--- !u!114 &-1679985814210405244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3095440825042257002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b406813bf0e6814b9156e8bb9a77f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activationDistance: 2.5
+  interactBoxs: []

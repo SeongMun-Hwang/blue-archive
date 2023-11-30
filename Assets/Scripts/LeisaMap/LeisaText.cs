@@ -30,7 +30,6 @@ public class LeisaText : MonoBehaviour
     {
         surpriseLeisaText.text = "";
     }
-    // Update is called once per frame
     IEnumerator ShowText(string text)
     {
         for (int i = 0; i < text.Length; i++)
