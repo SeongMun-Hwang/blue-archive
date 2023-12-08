@@ -36,10 +36,6 @@ public class MoveKoharu : MonoBehaviour
             float characterHeight = GetComponent<SpriteRenderer>().bounds.size.y / 2;
             boundaryMin = new Vector2(minCell.x + characterWidth, minCell.y + characterHeight);
             boundaryMax = new Vector2(maxCell.x - characterWidth, maxCell.y - characterHeight);
-
-            // 디버그 로그로 경계값 출력
-            Debug.Log("Boundary Min: " + boundaryMin);
-            Debug.Log("Boundary Max: " + boundaryMax);
         }
     }
 

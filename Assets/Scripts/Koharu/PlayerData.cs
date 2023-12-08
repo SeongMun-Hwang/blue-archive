@@ -3,42 +3,54 @@ using UnityEngine.SceneManagement;
 
 public class PlayerData : MonoBehaviour
 {
+    private string currentSaveSlot = "SaveSlot1"; // 기본 세이브 슬롯
+
     void Update()
     {
-        // 플레이어의 위치를 저장하려면, 예를 들어, 사용자 입력에 응답하여 이 메서드를 호출합니다.
-        if (Input.GetKeyDown(KeyCode.S)) // S 키를 눌러 저장
+        // 세이브 슬롯 선택 (예: 1, 2, 3번 키)
+        if (Input.GetKeyDown(KeyCode.Alpha1)) { 
+            currentSaveSlot = "SaveSlot1";
+            Debug.Log("SaveSlot1");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SavePlayerData();
+            currentSaveSlot = "SaveSlot2";
+            Debug.Log("SaveSlot2");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            currentSaveSlot = "SaveSlot3";
+            Debug.Log("SaveSlot3");
         }
 
-        // 저장된 데이터를 불러오려면, 다른 키 입력에 응답하여 이 메서드를 호출할 수 있습니다.
-        if (Input.GetKeyDown(KeyCode.L)) // L 키를 눌러 불러오기
-        {
-            LoadPlayerData();
-        }
+            // 세이브 및 로드
+           if (Input.GetKeyDown(KeyCode.F5)) SavePlayerData();
+        if (Input.GetKeyDown(KeyCode.L)) LoadPlayerData();
     }
 
     void SavePlayerData()
     {
-        // 현재 씬 이름과 플레이어의 위치 저장
-        PlayerPrefs.SetString("SceneName", SceneManager.GetActiveScene().name);
-        PlayerPrefs.SetFloat("PlayerPositionX", transform.position.x);
-        PlayerPrefs.SetFloat("PlayerPositionY", transform.position.y);
-        PlayerPrefs.Save(); // 변경 사항 저장
-        Debug.Log("현재 씬 : " + PlayerPrefs.GetString("SceneName", "DefaultSceneName"));
-        Debug.Log("현재 X좌표 : " + PlayerPrefs.GetFloat("PlayerPositionX", 0));
-        Debug.Log("현재 y좌표 : " + PlayerPrefs.GetFloat("PlayerPositionY", 0));
+        // 세이브 슬롯에 따라 키를 다르게 설정
+        PlayerPrefs.SetString(currentSaveSlot + "_SceneName", SceneManager.GetActiveScene().name);
+        PlayerPrefs.SetFloat(currentSaveSlot + "_PlayerPositionX", transform.position.x);
+        PlayerPrefs.SetFloat(currentSaveSlot + "_PlayerPositionY", transform.position.y);
+        PlayerPrefs.Save();
+        Debug.Log("현재 씬 : " + PlayerPrefs.GetString(currentSaveSlot + "_SceneName", "DefaultSceneName"));
+        Debug.Log("현재 X좌표 : " + PlayerPrefs.GetFloat(currentSaveSlot + "_PlayerPositionX", 0));
+        Debug.Log("현재 Y좌표 : " + PlayerPrefs.GetFloat(currentSaveSlot + "_PlayerPositionY", 0));
     }
-
     void LoadPlayerData()
     {
-        // 저장된 데이터를 불러옴
-        string sceneName = PlayerPrefs.GetString("SceneName", "DefaultSceneName");
-        float x = PlayerPrefs.GetFloat("PlayerPositionX", 0);
-        float y = PlayerPrefs.GetFloat("PlayerPositionY", 0);
-        Vector2 position = new Vector3(x, y);
-        // 여기에서 씬을 불러오고 플레이어의 위치를 설정하는 로직을 추가할 수 있습니다.
-        // 예: SceneManager.LoadScene(sceneName);
+        // 세이브 슬롯에 따라 데이터 불러오기
+        string sceneName = PlayerPrefs.GetString(currentSaveSlot + "_SceneName", "DefaultSceneName");
+        float x = PlayerPrefs.GetFloat(currentSaveSlot + "_PlayerPositionX", 0);
+        float y = PlayerPrefs.GetFloat(currentSaveSlot + "_PlayerPositionY", 0);
+        Vector2 position = new Vector2(x, y);
+        Debug.Log("현재 씬 : " + PlayerPrefs.GetString(currentSaveSlot + "_SceneName", "DefaultSceneName"));
+        Debug.Log("현재 X좌표 : " + PlayerPrefs.GetFloat(currentSaveSlot + "_PlayerPositionX", 0));
+        Debug.Log("현재 Y좌표 : " + PlayerPrefs.GetFloat(currentSaveSlot + "_PlayerPositionY", 0));
+        // 씬 로드 및 플레이어 위치 설정
+        // SceneManager.LoadScene(sceneName);
         // transform.position = position;
     }
 }
