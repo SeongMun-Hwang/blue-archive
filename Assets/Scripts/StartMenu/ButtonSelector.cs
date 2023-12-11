@@ -61,6 +61,10 @@ public class ButtonSelector : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("SuzumiMap");
     }
+    public void LoadGame()
+    {
+        SceneManager.LoadScene("LoadSave");
+    }
     public void ExitGame()
     {
         #if UNITY_EDITOR

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class MoveKoharu : MonoBehaviour
 {
@@ -69,6 +70,10 @@ public class MoveKoharu : MonoBehaviour
 
             // 마지막 방향을 업데이트한다.
             lastDirection = moveInput.x < 0 ? Vector2.left : Vector2.right;
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("StartMenu");
         }
     }
 
