@@ -13,8 +13,8 @@ public class LoadSaveManager : MonoBehaviour
     void Start()
     {
         // 각 세이브 슬롯에서 씬 이름을 불러와 Text UI에 표시
-        saveSlot1.text = "세이브 1\n"+PlayerPrefs.GetString("SaveSlot1_SceneName", "DefaultSceneName");
-        saveSlot2.text = "세이브 2\n" + PlayerPrefs.GetString("SaveSlot2_SceneName", "DefaultSceneName");
-        saveSlot3.text = "세이브 3\n" + PlayerPrefs.GetString("SaveSlot3_SceneName", "DefaultSceneName");
+        saveSlot1.text = "세이브 1\n" + PlayerPrefs.GetString("SaveSlot1_SceneName", "DefaultSceneName") + "\n" + PlayerPrefs.GetString("SaveSlot1_DateTime");
+        saveSlot2.text = "세이브 2\n" + PlayerPrefs.GetString("SaveSlot2_SceneName", "DefaultSceneName") + "\n" + PlayerPrefs.GetString("SaveSlot2_DateTime");
+        saveSlot3.text = "세이브 3\n" + PlayerPrefs.GetString("SaveSlot3_SceneName", "DefaultSceneName") + "\n" + PlayerPrefs.GetString("SaveSlot3_DateTime");
     }
 }

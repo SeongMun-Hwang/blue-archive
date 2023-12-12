@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,18 +25,21 @@ public class PlayerData : MonoBehaviour
         }
 
             // 세이브 및 로드
-           if (Input.GetKeyDown(KeyCode.F5)) SavePlayerData();
+        if (Input.GetKeyDown(KeyCode.F5)) SavePlayerData();
         if (Input.GetKeyDown(KeyCode.L)) LoadPlayerData();
     }
 
     void SavePlayerData()
     {
+        //현재 시간 저장
+        string dateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        PlayerPrefs.SetString(currentSaveSlot + "_DateTime", dateTime);
         // 세이브 슬롯에 따라 키를 다르게 설정
         PlayerPrefs.SetString(currentSaveSlot + "_SceneName", SceneManager.GetActiveScene().name);
         PlayerPrefs.SetFloat(currentSaveSlot + "_PlayerPositionX", transform.position.x);
         PlayerPrefs.SetFloat(currentSaveSlot + "_PlayerPositionY", transform.position.y);
         PlayerPrefs.Save();
-        Debug.Log("현재 씬 : " + PlayerPrefs.GetString(currentSaveSlot + "_SceneName", "DefaultSceneName"));
+        Debug.Log("현재 씬 : " + PlayerPrefs.GetString(currentSaveSlot + "_SceneName", "비어있음"));
         Debug.Log("현재 X좌표 : " + PlayerPrefs.GetFloat(currentSaveSlot + "_PlayerPositionX", 0));
         Debug.Log("현재 Y좌표 : " + PlayerPrefs.GetFloat(currentSaveSlot + "_PlayerPositionY", 0));
     }

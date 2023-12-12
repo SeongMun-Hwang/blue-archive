@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/LoadSave.unity
+    guid: 26bbaac2a9dc3724aa23b9f2224358d5
+  - enabled: 1
     path: Assets/Scenes/SuzumiMap.unity
     guid: 3af928997d475744b8568fdeb79f2948
   - enabled: 1
