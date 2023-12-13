@@ -28,13 +28,13 @@ public class ButtonSelector : MonoBehaviour
     void Update()
     {
         // 입력에 따라 selectedIndex를 업데이트합니다.
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             // 이전 하이라이트를 제거합니다.
             buttons[selectedIndex].GetComponent<Image>().color = originalColors[selectedIndex];
 
             // W키는 위로 이동, S키는 아래로 이동
-            selectedIndex += Input.GetKeyDown(KeyCode.W) ? -1 : 1;
+            selectedIndex += Input.GetKeyDown(KeyCode.UpArrow) ? -1 : 1;
 
             // 인덱스가 범위를 벗어나지 않게 합니다.
             if (selectedIndex < 0) selectedIndex = buttons.Length - 1;

@@ -812,9 +812,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a034ba1f1ad31468cc8fe770a209b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveSlot1: {fileID: 1146220990}
-  saveSlot2: {fileID: 1122470802}
-  saveSlot3: {fileID: 261546210}
+  saveSlot1: {fileID: 461842595}
+  saveSlot2: {fileID: 2096664357}
+  saveSlot3: {fileID: 646914257}
 --- !u!1 &1122470800
 GameObject:
   m_ObjectHideFlags: 0
