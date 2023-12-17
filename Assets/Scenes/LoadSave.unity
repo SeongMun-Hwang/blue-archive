@@ -815,6 +815,7 @@ MonoBehaviour:
   saveSlot1: {fileID: 461842595}
   saveSlot2: {fileID: 2096664357}
   saveSlot3: {fileID: 646914257}
+  scaryHanako: {fileID: 1904509231}
 --- !u!1 &1122470800
 GameObject:
   m_ObjectHideFlags: 0

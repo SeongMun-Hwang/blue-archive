@@ -13,6 +13,8 @@ public class LoadSaveManager : MonoBehaviour
     private Color originalColor;
     private Color selectedColor = Color.white; // 선택된 버튼의 색상
 
+    public GameObject scaryHanako;
+    
     void Start()
     {
         // 초기 색상 설정
@@ -36,7 +38,8 @@ public class LoadSaveManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            SceneManager.LoadScene(PlayerPrefs.GetString("SaveSlot"+(selectedButtonIndex+1)+"_SceneName"));
+            scaryHanako.SetActive(true);
+            //SceneManager.LoadScene(PlayerPrefs.GetString("SaveSlot"+(selectedButtonIndex+1)+"_SceneName"));
         }
     }
     void ChangeSelectedButton(int direction)
