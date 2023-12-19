@@ -65,6 +65,12 @@ public class ButtonSelector : MonoBehaviour
     {
         SceneManager.LoadScene("LoadSave");
     }
+    public void Setting()
+    {
+        Debug.Log("workling");
+        GameObject settingWindow = Resources.Load<GameObject>("SettingCanvas");
+        Instantiate(settingWindow);
+    }
     public void ExitGame()
     {
         #if UNITY_EDITOR

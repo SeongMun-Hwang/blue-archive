@@ -2156,6 +2156,7 @@ GameObject:
   - component: {fileID: 8137140561699769456}
   - component: {fileID: 8137140561699769457}
   - component: {fileID: 8137140561699769469}
+  - component: {fileID: 3452167750542859334}
   m_Layer: 5
   m_Name: SettingCanvas
   m_TagString: Untagged
@@ -2263,6 +2264,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resolutionDropdown: {fileID: 8137140560371621481}
+--- !u!114 &3452167750542859334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8137140561699769462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: becf6f8816c4df14c9a16b05f4daa7df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSources:
+  - {fileID: 3037114811686660442, guid: 7daac6ef152752c4393102c95e0d2082, type: 3}
+  - {fileID: 8515146048116075076, guid: def258e0a01f84e4bb714baec9884271, type: 3}
+  - {fileID: 5225893082641501281, guid: b705ae1fbc673c34d8160d06a731da87, type: 3}
+  volumeSlider: {fileID: 8137140561539577323}
 --- !u!1 &8137140561721170275
 GameObject:
   m_ObjectHideFlags: 0

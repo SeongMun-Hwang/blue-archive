@@ -1,22 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class SettingManager : MonoBehaviour
 {
     public TMP_Dropdown resolutionDropdown;
-
     void Start()
     {
         resolutionDropdown.onValueChanged.AddListener(ChangeResolution);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void SetResolution_full()
     {
         Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, FullScreenMode.FullScreenWindow);
