@@ -7,9 +7,18 @@ using TMPro;
 public class SettingManager : MonoBehaviour
 {
     public TMP_Dropdown resolutionDropdown;
+    public Canvas canvas;
     void Start()
     {
         resolutionDropdown.onValueChanged.AddListener(ChangeResolution);
+        if (canvas != null)
+        {
+            canvas.worldCamera = Camera.main;
+        }
+        else
+        {
+            Debug.LogError("Canvas component not assigned.");
+        }
     }
 
     public void SetResolution_full()
