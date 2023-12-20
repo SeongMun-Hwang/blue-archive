@@ -73,7 +73,10 @@ public class MoveKoharu : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("StartMenu");
+            //SceneManager.LoadScene("StartMenu");
+            Debug.Log("workling");
+            GameObject settingWindow = Resources.Load<GameObject>("SettingCanvas");
+            Instantiate(settingWindow);
         }
     }
 
