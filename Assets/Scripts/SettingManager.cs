@@ -54,4 +54,8 @@ public class SettingManager : MonoBehaviour
                 break;
         }
     }
+    public void CloseSetting()
+    {
+        Destroy(gameObject);
+    }
 }
