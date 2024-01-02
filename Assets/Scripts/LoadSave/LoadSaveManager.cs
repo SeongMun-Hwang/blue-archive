@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Collections;
+
 public class LoadSaveManager : MonoBehaviour
 {
     public Button saveSlot1;
@@ -19,11 +21,14 @@ public class LoadSaveManager : MonoBehaviour
     {
         // 초기 색상 설정
         originalColor = saveSlot1.image.color;
+
         buttons = new Button[] { saveSlot1, saveSlot2, saveSlot3 };
 
         saveSlot1.GetComponentInChildren<TextMeshProUGUI>().text = "세이브 1\n" + PlayerPrefs.GetString("SaveSlot1_SceneName", "DefaultSceneName") + "\n" + PlayerPrefs.GetString("SaveSlot1_DateTime");
         saveSlot2.GetComponentInChildren<TextMeshProUGUI>().text = "세이브 2\n" + PlayerPrefs.GetString("SaveSlot2_SceneName", "DefaultSceneName") + "\n" + PlayerPrefs.GetString("SaveSlot2_DateTime");
         saveSlot3.GetComponentInChildren<TextMeshProUGUI>().text = "세이브 3\n" + PlayerPrefs.GetString("SaveSlot3_SceneName", "DefaultSceneName") + "\n" + PlayerPrefs.GetString("SaveSlot3_DateTime");
+
+        buttons[selectedButtonIndex].image.color = selectedColor;
     }
 
     private void Update()
@@ -39,7 +44,7 @@ public class LoadSaveManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             scaryHanako.SetActive(true);
-            //SceneManager.LoadScene(PlayerPrefs.GetString("SaveSlot"+(selectedButtonIndex+1)+"_SceneName"));
+            StartCoroutine(WaitForSoundAndLoadScene());
         }
     }
     void ChangeSelectedButton(int direction)
@@ -53,5 +58,33 @@ public class LoadSaveManager : MonoBehaviour
         else if (selectedButtonIndex < 0) selectedButtonIndex = buttons.Length - 1;
 
         buttons[selectedButtonIndex].image.color = selectedColor;
+    }
+    private void LoadSceneAfterLoading()
+    {
+        // 현재 선택된 저장 슬롯에 따라 씬 이름 저장
+        string sceneToLoad = PlayerPrefs.GetString("SaveSlot" + (selectedButtonIndex + 1) + "_SceneName");
+
+        // 로딩 씬을 불러오기 전에 씬 이름을 임시 저장
+        PlayerPrefs.SetString("SceneToLoad", sceneToLoad);
+
+        // 로딩 씬 불러오기
+        SceneManager.LoadScene("Loading");
+    }
+    IEnumerator WaitForSoundAndLoadScene()
+    {
+        // scaryHanako의 AudioSource 컴포넌트 가져오기
+        AudioSource audioSource = scaryHanako.GetComponent<AudioSource>();
+
+        // 효과음 재생
+        if (audioSource != null && audioSource.clip != null)
+        {
+            audioSource.Play();
+
+            // 효과음 길이만큼 대기
+            yield return new WaitForSeconds(audioSource.clip.length);
+        }
+
+        // 씬 로딩 함수 호출
+        LoadSceneAfterLoading();
     }
 }
