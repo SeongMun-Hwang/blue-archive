@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class SettingManager : MonoBehaviour
@@ -57,5 +57,10 @@ public class SettingManager : MonoBehaviour
     public void CloseSetting()
     {
         Destroy(gameObject);
+    }
+    public void ToStartMenu()
+    {
+        Destroy(gameObject);
+        SceneManager.LoadScene("StartMenu");
     }
 }

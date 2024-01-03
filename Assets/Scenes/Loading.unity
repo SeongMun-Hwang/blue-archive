@@ -270,12 +270,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.653
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -300,7 +300,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &936578909
 RectTransform:
@@ -352,7 +352,7 @@ Transform:
   m_GameObject: {fileID: 1084026422}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -570.5, y: -248.5, z: 0}
-  m_LocalScale: {x: 2.6960726, y: 1.4773, z: 1.4773}
+  m_LocalScale: {x: 2.743793, y: 1.5034482, z: 1.5034482}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 936578909}
@@ -436,8 +436,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212804782}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -570, y: -248, z: 0}
-  m_LocalScale: {x: 1.0442, y: 1.0442, z: 1.0442}
+  m_LocalPosition: {x: -569.99, y: -247.99, z: 0}
+  m_LocalScale: {x: 1.0626823, y: 1.0626823, z: 1.0626823}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 936578909}
@@ -743,8 +743,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1872398523}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -560.66, y: -251.86, z: 0}
-  m_LocalScale: {x: 0.45199, y: 0.45199, z: 0.45199}
+  m_LocalPosition: {x: -560.49, y: -251.92, z: 0}
+  m_LocalScale: {x: 0.4599902, y: 0.4599902, z: 0.4599902}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 936578909}
