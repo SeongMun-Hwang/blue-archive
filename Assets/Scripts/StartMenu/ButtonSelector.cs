@@ -63,7 +63,10 @@ public class ButtonSelector : MonoBehaviour
     }
     public void LoadGame()
     {
+        PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
+        PlayerPrefs.Save();
         SceneManager.LoadScene("LoadSave");
+        //SceneManagerSystem.Instance.ChangeScene("LoadSave");
     }
     public void Setting()
     {

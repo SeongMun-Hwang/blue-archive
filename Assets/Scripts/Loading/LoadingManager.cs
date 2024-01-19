@@ -28,6 +28,6 @@ public class LoadingManager : MonoBehaviour
         string sceneToLoad = PlayerPrefs.GetString("SceneToLoad");
 
         // ÇØ´ç ¾À ·Îµå
-        SceneManager.LoadScene(sceneToLoad);
+        SceneManagerSystem.Instance.ChangeScene(sceneToLoad); ;
     }
 }

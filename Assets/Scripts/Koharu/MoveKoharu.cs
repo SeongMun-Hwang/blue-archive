@@ -16,6 +16,7 @@ public class MoveKoharu : MonoBehaviour
     private Vector2 boundaryMax; // 배경의 최대 경계값
     //애니메이션
     private Animator animator;
+    private bool isLoadSaveOpen = false;
 
     void Start()
     {
@@ -74,9 +75,23 @@ public class MoveKoharu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             //SceneManager.LoadScene("StartMenu");
-            Debug.Log("workling");
-            GameObject settingWindow = Resources.Load<GameObject>("SettingCanvas");
-            Instantiate(settingWindow);
+            Debug.Log("working");
+
+            //환경설정 리소스 로드
+            //GameObject settingWindow = Resources.Load<GameObject>("SettingCanvas");
+            //Instantiate(settingWindow);
+            if (!isLoadSaveOpen)
+            {
+                // LoadSave 씬을 불러오고 상태를 업데이트
+                SceneManager.LoadScene("LoadSave", LoadSceneMode.Additive);
+                isLoadSaveOpen = true;
+            }
+            else
+            {
+                // LoadSave 씬을 닫고 상태를 업데이트
+                SceneManager.UnloadSceneAsync("LoadSave");
+                isLoadSaveOpen = false;
+            }
         }
     }
 

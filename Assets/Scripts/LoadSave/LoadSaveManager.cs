@@ -16,7 +16,7 @@ public class LoadSaveManager : MonoBehaviour
     private Color selectedColor = Color.white; // 선택된 버튼의 색상
 
     public GameObject scaryHanako;
-    
+
     void Start()
     {
         // 초기 색상 설정
@@ -41,10 +41,23 @@ public class LoadSaveManager : MonoBehaviour
         {
             ChangeSelectedButton(-1); // 이전 버튼 선택
         }
-        if (Input.GetKeyDown(KeyCode.Return))
+
+        else if (Input.GetKeyDown(KeyCode.Return))
         {
-            scaryHanako.SetActive(true);
-            StartCoroutine(WaitForSoundAndLoadScene());
+            // 이전 씬 이름을 가져옴
+            string previousScene = PlayerPrefs.GetString("PreviousScene", "");
+
+            if (previousScene == "StartMenu")
+            {
+                // StartMenu에서 왔을 경우, 저장된 씬 로드
+                scaryHanako.SetActive(true);
+                StartCoroutine(WaitForSoundAndLoadScene());
+            }
+            else
+            {
+                // StartMenu가 아닌 다른 씬에서 왔을 경우, 현재 상태 저장
+                PlayerData.Instance.SavePlayerData();
+            }
         }
     }
     void ChangeSelectedButton(int direction)
@@ -59,17 +72,7 @@ public class LoadSaveManager : MonoBehaviour
 
         buttons[selectedButtonIndex].image.color = selectedColor;
     }
-    private void LoadSceneAfterLoading()
-    {
-        // 현재 선택된 저장 슬롯에 따라 씬 이름 저장
-        string sceneToLoad = PlayerPrefs.GetString("SaveSlot" + (selectedButtonIndex + 1) + "_SceneName");
 
-        // 로딩 씬을 불러오기 전에 씬 이름을 임시 저장
-        PlayerPrefs.SetString("SceneToLoad", sceneToLoad);
-
-        // 로딩 씬 불러오기
-        SceneManager.LoadScene("Loading");
-    }
     IEnumerator WaitForSoundAndLoadScene()
     {
         // scaryHanako의 AudioSource 컴포넌트 가져오기
@@ -86,5 +89,16 @@ public class LoadSaveManager : MonoBehaviour
 
         // 씬 로딩 함수 호출
         LoadSceneAfterLoading();
+    }
+    private void LoadSceneAfterLoading()
+    {
+        // 현재 선택된 저장 슬롯에 따라 씬 이름 저장
+        string sceneToLoad = PlayerPrefs.GetString("SaveSlot" + (selectedButtonIndex + 1) + "_SceneName");
+
+        // 로딩 씬을 불러오기 전에 씬 이름을 임시 저장
+        PlayerPrefs.SetString("SceneToLoad", sceneToLoad);
+
+        // 로딩 씬 불러오기
+        SceneManagerSystem.Instance.ChangeScene("Loading");
     }
 }
