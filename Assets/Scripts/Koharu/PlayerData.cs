@@ -4,6 +4,20 @@ using UnityEngine.SceneManagement;
 
 public class PlayerData : MonoBehaviour
 {
+    public static PlayerData Instance; // 싱글턴 인스턴스
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
     private string currentSaveSlot = "SaveSlot1"; // 기본 세이브 슬롯
 
     void Update()
@@ -29,7 +43,7 @@ public class PlayerData : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L)) LoadPlayerData();
     }
 
-    void SavePlayerData()
+    public void SavePlayerData()
     {
         //현재 시간 저장
         string dateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
