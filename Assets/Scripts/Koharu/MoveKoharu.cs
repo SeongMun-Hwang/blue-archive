@@ -16,7 +16,7 @@ public class MoveKoharu : MonoBehaviour
     private Vector2 boundaryMax; // 배경의 최대 경계값
     //애니메이션
     private Animator animator;
-    private bool isLoadSaveOpen = false;
+    private bool isLoadSaveOpen = false; //로드세이브 창 열기 
 
     void Start()
     {
