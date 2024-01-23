@@ -21,7 +21,8 @@ public class SceneManagerSystem : MonoBehaviour
     public void ChangeScene(string sceneName)
     {
         SaveCurrentSceneName();
-        SceneManager.LoadScene(sceneName);
+        PlayerPrefs.SetString("SceneToLoad", sceneName);
+        SceneManager.LoadScene("Loading");
     }
 
     private void SaveCurrentSceneName()
