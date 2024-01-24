@@ -23,7 +23,11 @@ public class LoadingManager : MonoBehaviour
     {
         // 3초 대기
         yield return new WaitForSeconds(3f);
-
+        GameObject koharu = GameObject.Find("KoharuZzang(Clone)");
+        if (koharu != null)
+        {
+            Destroy(koharu);
+        }
         // 저장된 씬 이름 불러오기
         string sceneToLoad = PlayerPrefs.GetString("SceneToLoad");
 

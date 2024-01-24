@@ -6,11 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class SuzumiMapManager : MonoBehaviour
 {
-    public Tilemap tilemap;
     private GameObject character;
     void Start()
     {
-        tilemap = FindObjectOfType<Tilemap>();
         //리소스 폴더에서 코하루 동적 로딩
         GameObject characterPrefab = Resources.Load<GameObject>("KoharuZzang");
         character = Instantiate(characterPrefab);

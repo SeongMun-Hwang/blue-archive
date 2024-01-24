@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class LeisaMapManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private GameObject character;
     void Start()
     {
         GameObject characterPrefab = Resources.Load<GameObject>("KoharuZzang");
-        GameObject character = Instantiate(characterPrefab);
+        character = Instantiate(characterPrefab);
         LeisaInteract leisaInteract = FindObjectOfType<LeisaInteract>();
         leisaInteract.Koharu = character;
     }
