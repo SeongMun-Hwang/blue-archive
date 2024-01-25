@@ -36,10 +36,26 @@ public class LoadSaveManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             ChangeSelectedButton(1); // 다음 버튼 선택
+            if (PlayerData.Instance.saveslot < 3)
+            {
+                PlayerData.Instance.saveslot++;
+            }
+            else if (PlayerData.Instance.saveslot == 3)
+            {
+                PlayerData.Instance.saveslot = 1;
+            }
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             ChangeSelectedButton(-1); // 이전 버튼 선택
+            if (PlayerData.Instance.saveslot > 1 )
+            {
+                PlayerData.Instance.saveslot--;
+            }
+            else if (PlayerData.Instance.saveslot == 1)
+            {
+                PlayerData.Instance.saveslot = 3;
+            }
         }
 
         else if (Input.GetKeyDown(KeyCode.Return))
