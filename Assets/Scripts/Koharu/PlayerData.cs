@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class PlayerData : MonoBehaviour
 {
     public static PlayerData Instance; // 싱글턴 인스턴스
-
+    public int saveslot=1;
     void Awake()
     {
         if (Instance == null)
@@ -22,23 +22,7 @@ public class PlayerData : MonoBehaviour
 
     void Update()
     {
-        // 세이브 슬롯 선택 (예: 1, 2, 3번 키)
-        if (Input.GetKeyDown(KeyCode.Alpha1)) { 
-            currentSaveSlot = "SaveSlot1";
-            Debug.Log("SaveSlot1");
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            currentSaveSlot = "SaveSlot2";
-            Debug.Log("SaveSlot2");
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            currentSaveSlot = "SaveSlot3";
-            Debug.Log("SaveSlot3");
-        }
-
-            // 세이브 및 로드
+        // 세이브 및 로드
         if (Input.GetKeyDown(KeyCode.F5)) SavePlayerData();
         if (Input.GetKeyDown(KeyCode.L)) LoadPlayerData();
     }

@@ -25,7 +25,7 @@ public class ObjectActive : MonoBehaviour
                 square.SetActive(isActive);
 
                 // µð¹ö±ë ·Î±×
-                Debug.Log($"Square: {square.name}, Distance: {distanceX}, IsActive: {isActive}");
+                //Debug.Log($"Square: {square.name}, Distance: {distanceX}, IsActive: {isActive}");
             }
         }
     }
