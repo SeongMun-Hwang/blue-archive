@@ -8,7 +8,7 @@ public class MoveMapActive : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)){
-            SceneManagerSystem.Instance.ChangeScene(sceneName);
+            GameManager.Instance.ChangeScene(sceneName);
         }
     }
 }

@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManagerSystem : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static SceneManagerSystem Instance; // 싱글턴 인스턴스
+    public static GameManager Instance; // 싱글턴 인스턴스
 
     void Awake()
     {
