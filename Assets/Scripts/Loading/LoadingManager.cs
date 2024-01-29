@@ -30,7 +30,7 @@ public class LoadingManager : MonoBehaviour
         }
         // 저장된 씬 이름 불러오기
         string sceneToLoad = PlayerPrefs.GetString("SceneToLoad");
-
+        Debug.Log(sceneToLoad);
         // 해당 씬 로드
         SceneManager.LoadScene(sceneToLoad);
     }

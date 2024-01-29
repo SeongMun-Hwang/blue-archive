@@ -113,8 +113,7 @@ public class LoadSaveManager : MonoBehaviour
 
         // 로딩 씬을 불러오기 전에 씬 이름을 임시 저장
         PlayerPrefs.SetString("SceneToLoad", sceneToLoad);
-
         // 로딩 씬 불러오기
-        GameManager.Instance.ChangeScene("Loading");
+        SceneManager.LoadScene("Loading");
     }
 }
