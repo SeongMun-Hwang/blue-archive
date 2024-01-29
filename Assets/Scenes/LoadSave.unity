@@ -224,7 +224,6 @@ GameObject:
   - component: {fileID: 1024228800}
   - component: {fileID: 1024228799}
   - component: {fileID: 1024228798}
-  - component: {fileID: 1024228801}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -298,22 +297,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1024228801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1024228797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65a034ba1f1ad31468cc8fe770a209b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  saveSlot1: {fileID: 461842595}
-  saveSlot2: {fileID: 2096664357}
-  saveSlot3: {fileID: 646914257}
-  scaryHanako: {fileID: 1904509231}
 --- !u!1 &1904509231 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4493642924125169808, guid: 83738503bb195544082cf7ce7d4a1d0c, type: 3}
@@ -431,3 +414,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83738503bb195544082cf7ce7d4a1d0c, type: 3}
+--- !u!1 &4493642923294403008 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4493642922970244945, guid: 83738503bb195544082cf7ce7d4a1d0c, type: 3}
+  m_PrefabInstance: {fileID: 4493642923294403007}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4493642923294403009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4493642923294403008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65a034ba1f1ad31468cc8fe770a209b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveSlot1: {fileID: 461842595}
+  saveSlot2: {fileID: 2096664357}
+  saveSlot3: {fileID: 646914257}
+  scaryHanako: {fileID: 1904509231}
