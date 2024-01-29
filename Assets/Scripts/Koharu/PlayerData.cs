@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class PlayerData : MonoBehaviour
 {
     public static PlayerData Instance; // 싱글턴 인스턴스
-    public int saveslot=1;
+    public int saveslot = 1;
     void Awake()
     {
         if (Instance == null)
