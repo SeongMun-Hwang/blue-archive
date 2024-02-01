@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance; // 싱글턴 인스턴스
+    public int NumberOfInteractWithSuzumi = 0;
+    public int NumberOfInteractWithLeisa = 0;
 
     void Awake()
     {

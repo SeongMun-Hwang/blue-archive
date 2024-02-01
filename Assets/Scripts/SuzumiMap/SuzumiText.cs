@@ -11,18 +11,17 @@ public class SuzumiText : MonoBehaviour
     };
     private string currentText = "";
     private float delay = 0.1f;
-    private int interactedNumber = 0; //상호작용 횟수
     private void OnEnable()
     {
-        if (interactedNumber == 0)
+        if (GameManager.Instance.NumberOfInteractWithSuzumi == 0)
         {
             StartCoroutine(ShowText(textCase[0]));
         }
-        else if (interactedNumber > 0)
+        else if (GameManager.Instance.NumberOfInteractWithSuzumi > 0)
         {
             StartCoroutine(ShowText(textCase[1]));
         }
-        interactedNumber++;
+        GameManager.Instance.NumberOfInteractWithSuzumi++;
     }
     private void OnDisable()
     {

@@ -12,19 +12,18 @@ public class LeisaText : MonoBehaviour
     };
     private string currentText = "";
     private float delay = 0.1f;
-    private int interactedNumber = 0; //상호작용 횟수
 
     void OnEnable()
     {
-        if (interactedNumber == 0)
+        if (GameManager.Instance.NumberOfInteractWithLeisa == 0)
         {
             StartCoroutine(ShowText(textCase[0]));
         }
-        else if (interactedNumber > 0)
+        else if (GameManager.Instance.NumberOfInteractWithLeisa > 0)
         {
             StartCoroutine(ShowText(textCase[1]));
         }
-        interactedNumber++;
+        GameManager.Instance.NumberOfInteractWithLeisa++;
     }
     private void OnDisable()
     {
