@@ -49,4 +49,8 @@ public class MenuManager : MonoBehaviour
     {
         buttons[index].GetComponent<Image>().color = highlightColor;
     }
+    void ContunueGame()
+    {
+        Destroy(gameObject);
+    }
 }
