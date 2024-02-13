@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     public Button[] buttons; // 에디터에서 할당
@@ -48,5 +48,9 @@ public class MenuManager : MonoBehaviour
         void HighlightButton(int index)
     {
         buttons[index].GetComponent<Image>().color = highlightColor;
+    }
+    void LoadGame()
+    {
+        SceneManager.LoadScene("LoadSave", LoadSceneMode.Additive);
     }
 }
