@@ -52,5 +52,8 @@ public class MenuManager : MonoBehaviour
     void LoadGame()
     {
         SceneManager.LoadScene("LoadSave", LoadSceneMode.Additive);
+    void ContunueGame()
+    {
+        Destroy(gameObject);
     }
 }
