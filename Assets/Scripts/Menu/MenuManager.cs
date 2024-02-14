@@ -1,14 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
+
 public class MenuManager : MonoBehaviour
 {
     public Button[] buttons; // 에디터에서 할당
     private int selectedIndex = 0;
     private Color[] originalColors;
-    public Color highlightColor = Color.yellow;
+    public Color highlightColor = Color.white;
+    public Color highlightText = Color.black;
 
-    // Start is called before the first frame update
     void Start()
     {
         originalColors = new Color[buttons.Length];
@@ -16,6 +18,7 @@ public class MenuManager : MonoBehaviour
         {
             originalColors[i] = buttons[i].GetComponent<Image>().color;
         }
+        HighlightButton(selectedIndex);
     }
 
     // Update is called once per frame
@@ -26,7 +29,7 @@ public class MenuManager : MonoBehaviour
         {
             // 이전 하이라이트를 제거합니다.
             buttons[selectedIndex].GetComponent<Image>().color = originalColors[selectedIndex];
-
+            buttons[selectedIndex].GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
             // W키는 위로 이동, S키는 아래로 이동
             selectedIndex += Input.GetKeyDown(KeyCode.UpArrow) ? -1 : 1;
 
@@ -48,10 +51,12 @@ public class MenuManager : MonoBehaviour
         void HighlightButton(int index)
     {
         buttons[index].GetComponent<Image>().color = highlightColor;
+        buttons[index].GetComponentInChildren<TextMeshProUGUI>().color = highlightText;
     }
     void LoadGame()
     {
         SceneManager.LoadScene("LoadSave", LoadSceneMode.Additive);
+    }
     void ContunueGame()
     {
         Destroy(gameObject);
