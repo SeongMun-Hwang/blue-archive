@@ -53,12 +53,16 @@ public class MenuManager : MonoBehaviour
         buttons[index].GetComponent<Image>().color = highlightColor;
         buttons[index].GetComponentInChildren<TextMeshProUGUI>().color = highlightText;
     }
-    void LoadGame()
+    public void LoadGame()
     {
         SceneManager.LoadScene("LoadSave", LoadSceneMode.Additive);
     }
-    void ContunueGame()
+    public void ContunueGame()
     {
         Destroy(gameObject);
+    }
+    public void Setting()
+    {
+        SceneManager.LoadScene("Setting", LoadSceneMode.Additive);
     }
 }
