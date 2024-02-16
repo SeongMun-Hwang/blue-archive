@@ -10,9 +10,11 @@ public class MenuManager : MonoBehaviour
     private Color[] originalColors;
     public Color highlightColor = Color.white;
     public Color highlightText = Color.black;
+    public Camera mainCamera;
 
     void Start()
     {
+        mainCamera = Camera.main;
         originalColors = new Color[buttons.Length];
         for (int i = 0; i < buttons.Length; i++)
         {
@@ -48,7 +50,7 @@ public class MenuManager : MonoBehaviour
             buttons[selectedIndex].onClick.Invoke();
         }
     }
-        void HighlightButton(int index)
+    void HighlightButton(int index)
     {
         buttons[index].GetComponent<Image>().color = highlightColor;
         buttons[index].GetComponentInChildren<TextMeshProUGUI>().color = highlightText;
