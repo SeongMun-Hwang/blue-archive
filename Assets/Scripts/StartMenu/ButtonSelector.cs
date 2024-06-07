@@ -72,7 +72,7 @@ public class ButtonSelector : MonoBehaviour
     {
         Debug.Log("workling");
         GameObject settingWindow = Resources.Load<GameObject>("SettingCanvas");
-        Instantiate(settingWindow);
+        Instantiate(settingWindow, new Vector3(0,0,1), settingWindow.transform.rotation);
     }
     public void ExitGame()
     {

@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 18393791}
   - component: {fileID: 18393793}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -288,6 +288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437236078b965184a9187314d0576ad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NumberOfInteractWithSuzumi: 0
+  NumberOfInteractWithLeisa: 0
 --- !u!4 &18393792
 Transform:
   m_ObjectHideFlags: 0

@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    
     public void ChangeScene(string sceneName)
     {
         SaveCurrentSceneName();
