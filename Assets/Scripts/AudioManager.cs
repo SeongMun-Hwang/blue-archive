@@ -5,7 +5,6 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; } // 싱글톤 인스턴스
 
-    public AudioSource[] audioSources; // 오디오 소스 배열
     public Slider volumeSlider;
 
     private void Awake()
@@ -27,12 +26,11 @@ public class AudioManager : MonoBehaviour
     // 볼륨을 설정하는 메소드
     public void SetVolume(float volume)
     {
-        foreach (AudioSource source in audioSources)
+
+        if (SoundManager.Instance.audioSource != null)
         {
-            if (source != null)
-            {
-                source.volume = volume;
-            }
+            SoundManager.Instance.audioSource.volume = volume;
         }
+
     }
 }
