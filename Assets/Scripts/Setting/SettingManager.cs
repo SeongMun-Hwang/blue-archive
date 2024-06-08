@@ -20,6 +20,13 @@ public class SettingManager : MonoBehaviour
             Debug.LogError("Canvas component not assigned.");
         }
     }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void SetResolution_full()
     {

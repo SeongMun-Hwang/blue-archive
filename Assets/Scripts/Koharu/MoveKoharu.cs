@@ -17,7 +17,6 @@ public class MoveKoharu : MonoBehaviour
     //애니메이션
     private Animator animator;
     private bool isLoadSaveOpen = false; //로드세이브 창 열기 
-    private bool isMenuOpen = false; //로드세이브 창 열기 
 
     void Start()
     {
@@ -73,27 +72,7 @@ public class MoveKoharu : MonoBehaviour
             // 마지막 방향을 업데이트한다.
             lastDirection = moveInput.x < 0 ? Vector2.left : Vector2.right;
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            //SceneManager.LoadScene("StartMenu");
-            Debug.Log("working");
-
-            //환경설정 리소스 로드
-            //GameObject settingWindow = Resources.Load<GameObject>("SettingCanvas");
-            //Instantiate(settingWindow);
-            if (!isMenuOpen)
-            {
-                // LoadSave 씬을 불러오고 상태를 업데이트
-                SceneManager.LoadScene("Menu", LoadSceneMode.Additive);
-                isMenuOpen = true;
-            }
-            else
-            {
-                // LoadSave 씬을 닫고 상태를 업데이트
-                SceneManager.UnloadSceneAsync("Menu");
-                isMenuOpen = false;
-            }
-        }
+        
     }
 
     void StartFlip(float targetScaleX)
