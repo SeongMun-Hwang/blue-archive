@@ -59,12 +59,24 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("LoadSave", LoadSceneMode.Additive);
     }
-    public void ContunueGame()
+    public void ContinueGame()
     {
         Destroy(gameObject);
     }
     public void Setting()
     {
-        SceneManager.LoadScene("Setting", LoadSceneMode.Additive);
+        GameObject settingWindow = Resources.Load<GameObject>("SettingCanvas");
+        Instantiate(settingWindow);
+    }
+    public void BackToTitle()
+    {
+        SceneManager.LoadScene("StartMenu");
+    }
+    public void Exit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+        Application.Quit();
     }
 }

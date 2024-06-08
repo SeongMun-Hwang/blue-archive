@@ -23,6 +23,10 @@ public class AudioManager : MonoBehaviour
     {
         volumeSlider.onValueChanged.AddListener(SetVolume);
     }
+    private void OnEnable()
+    {
+        volumeSlider.value = SoundManager.Instance.audioSource.volume;
+    }
     // 볼륨을 설정하는 메소드
     public void SetVolume(float volume)
     {
