@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,16 @@ public class AssMapManager : MonoBehaviour
 {
     public Image startImage;
     public float increaseTime;
+    public TextMeshProUGUI[] textBubble;
+    private string currentText = "";
+    private float delay = 0.1f;
 
+    private string[] firstScene = 
+    {
+        "아이리, 주문한 음식이 온 것 같아.",
+        "음... 오늘은 몸이 안 좋네",
+        "그럼 내가 먹을래!"
+    };
     void Start()
     {
         StartCoroutine(SceneStart());
@@ -26,5 +36,19 @@ public class AssMapManager : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         startImage.color = new Color(startImage.color.r, startImage.color.g, startImage.color.b, 1);
+        StartCoroutine(FirstScene());
+    }
+    IEnumerator FirstScene()
+    {
+        for(int j=0;j<textBubble.Length;j++)
+        {
+            for (int i = 0; i < firstScene[j].Length; i++)
+            {
+                currentText = firstScene[j].Substring(0, i + 1);
+                textBubble[j].text = currentText;
+                yield return new WaitForSeconds(delay);
+            }
+        }
+        yield return new WaitForSeconds (1);
     }
 }
