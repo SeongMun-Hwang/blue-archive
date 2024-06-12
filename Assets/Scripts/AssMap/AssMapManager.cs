@@ -42,13 +42,15 @@ public class AssMapManager : MonoBehaviour
     {
         for(int j=0;j<textBubble.Length;j++)
         {
+            textBubble[j].transform.parent.gameObject.SetActive(true);
             for (int i = 0; i < firstScene[j].Length; i++)
             {
                 currentText = firstScene[j].Substring(0, i + 1);
                 textBubble[j].text = currentText;
                 yield return new WaitForSeconds(delay);
             }
+            yield return new WaitForSeconds(1);
+            textBubble[j].transform.parent.gameObject.SetActive(false);
         }
-        yield return new WaitForSeconds (1);
     }
 }
