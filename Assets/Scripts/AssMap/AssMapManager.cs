@@ -12,6 +12,9 @@ public class AssMapManager : MonoBehaviour
     private string currentText = "";
     private float delay = 0.1f;
 
+    public Transform[] dessertsPosition;
+    public GameObject[] desserts;
+
     private string[] firstScene = 
     {
         "아이리, 주문한 음식이 온 것 같아.",
@@ -36,7 +39,7 @@ public class AssMapManager : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         startImage.color = new Color(startImage.color.r, startImage.color.g, startImage.color.b, 1);
-        StartCoroutine(FirstScene());
+        StartCoroutine(DessertCreator());
     }
     IEnumerator FirstScene()
     {
@@ -52,5 +55,25 @@ public class AssMapManager : MonoBehaviour
             yield return new WaitForSeconds(1);
             textBubble[j].transform.parent.gameObject.SetActive(false);
         }
+        StartCoroutine(DessertCreator());
     }
+    IEnumerator DessertCreator()
+    {
+        GameObject currentDessert = null;
+
+        while (true)
+        {
+            if (currentDessert != null)
+            {
+                Destroy(currentDessert); // 이전 디저트 파괴
+            }
+
+            // 새 디저트 생성
+            currentDessert = Instantiate(desserts[Random.Range(0, desserts.Length)],
+                dessertsPosition[Random.Range(0, dessertsPosition.Length)]);
+
+            yield return new WaitForSeconds(2); // 적절한 대기 시간 부여
+        }
+    }
+
 }

@@ -733,6 +733,12 @@ MonoBehaviour:
   - {fileID: 1696542531}
   - {fileID: 418128336}
   - {fileID: 545004988}
+  dessertsPosition:
+  - {fileID: 1855338404}
+  - {fileID: 280350530}
+  - {fileID: 1199399524}
+  desserts:
+  - {fileID: 0}
 --- !u!4 &808588525
 Transform:
   m_ObjectHideFlags: 0
@@ -740,8 +746,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 808588523}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 633.95996, y: 471.55112, z: -5.749051}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 633.95996, y: 471.55112, z: -5.7490506}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
